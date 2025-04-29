@@ -1829,7 +1829,7 @@
         displayPredictionResult({
           prediction: {
             level: level,
-            aqi: Math.round(data.aqi),
+            aqi: data.aqi.toFixed(1),
             range: range,
             isBasic: false
           }
