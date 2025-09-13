@@ -2126,8 +2126,8 @@
             <label for="humidity">Humidity (%)</label>
             <input type="number" id="humidity" name="humidity" placeholder="Enter humidity, e.g., 70" step="any">
 
-            <label for="tree">Tree Density</label>
-            <input type="number" id="tree" name="tree" placeholder="Number of trees per unit area" step="any">
+            <label for="tree">Tree Density (Trees/km²)</label>
+            <input type="number" id="tree" name="tree" placeholder="Number of trees per square kilometer" step="any">
 
             <button type="submit">Predict</button>
             <div class="error-message" id="basicError"></div>
@@ -2518,15 +2518,15 @@
       
       // Prepare data for API
       const payload = {
-        input1: traffic,
-        input2: industry,
-        input3: temperature,
-        input4: humidity,
-        input5: tree
+        traffic: traffic,
+        industry: industry,
+        temperature: parseFloat(temperature),
+        humidity: parseFloat(humidity),
+        trees: parseFloat(tree)
       };
 
       // Call API
-      fetch('https://api-thing-model-1.onrender.com/predict', {
+      fetch('https://ItsMeArm00n-Basic.hf.space/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
